@@ -24,19 +24,28 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import { NavigationContainer } from '@react-navigation/native'
+import 'react-native-gesture-handler';
+
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
+import Navbar from './src/components/common/Navbar'
 import SaverLifeApp from './src/SaverLifeApp'
 import mainReducer from './src/reducers/mainReducer'
+import LoadingComponent from './src/components/common/LoadingComponent'
+import BudgetPage from './src/pages/BudgetPage'
 
-const store = createStore(mainReducer, applyMiddleware(thunk))
+const store = createStore(mainReducer, applyMiddleware(thunk));
 
 const App = () => {
   return (
     <Provider store={store}>
-      <SaverLifeApp />
+      <NavigationContainer>
+        <Navbar />
+        {/* <SaverLifeApp /> */}
+      </NavigationContainer>
     </Provider>
     // <>
     //   <StatusBar barStyle="dark-content" />

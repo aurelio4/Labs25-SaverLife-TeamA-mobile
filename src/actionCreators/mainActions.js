@@ -8,9 +8,9 @@ export const GET_SPENDING_BAR = 'get_spending_bar';
 export const GET_SPENDING_DONUT = 'get_spending_donut';
 
 // const userEmail = getEmail();
-const userEmail = 'llama001@maildrop.cc'
 
 export const getBudgetAction = () => dispatch => {
+  const userEmail = 'llama001@maildrop.cc'
   let futureBudget = {};
   let currentSpending = {};
   // console.log(userEmail);
@@ -43,6 +43,7 @@ export const getBudgetAction = () => dispatch => {
 };
 
 export const getSpendingBarAction = () => dispatch => {
+  const userEmail = 'llama001@maildrop.cc'
   axios
     .post('https://saverlife-a-api.herokuapp.com/data/spending', {
       user_ID: userEmail,
@@ -59,6 +60,7 @@ export const getSpendingBarAction = () => dispatch => {
 };
 
 export const getSpendingDonutAction = () => dispatch => {
+  const userEmail = 'llama001@maildrop.cc'
   axios
     .post('https://saverlife-a-api.herokuapp.com/data/spending', {
       user_ID: userEmail,
@@ -75,6 +77,7 @@ export const getSpendingDonutAction = () => dispatch => {
 };
 
 export const getNetIncomeAction = () => dispatch => {
+  const userEmail = 'llama001@maildrop.cc'
   axios
     .post('https://saverlife-a-api.herokuapp.com/data/moneyflow', {
       user_ID: userEmail,
