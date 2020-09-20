@@ -3,12 +3,18 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'SaverLife' do
+target 'other' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
-  target 'SaverLifeTests' do
+
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
+  target 'otherTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -23,10 +29,10 @@ target 'SaverLife' do
   end
 end
 
-target 'SaverLife-tvOS' do
-  # Pods for SaverLife-tvOS
+target 'other-tvOS' do
+  # Pods for other-tvOS
 
-  target 'SaverLife-tvOSTests' do
+  target 'other-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
