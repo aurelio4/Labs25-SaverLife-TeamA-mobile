@@ -11,9 +11,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
+
     "@material-ui/core": "^4.11.0",
     "@okta/okta-react-native": "^1.4.1",
     "@oktadev/schematics": "^1.0.0",
+
+    "@ant-design/icons-react-native": "^2.2.1",
+
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/bottom-tabs": "^5.8.0",
     "@react-navigation/native": "^5.7.3",

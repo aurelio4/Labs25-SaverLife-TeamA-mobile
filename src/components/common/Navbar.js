@@ -1,73 +1,39 @@
-import React, { useEffect, useState } from 'react'
-import { StyleSheet, SafeAreaView, Text, View, ScrollView } from 'react-native'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserFromIdToken } from '@okta/okta-react-native';
+/* eslint-disable prettier/prettier */
+import React from 'react';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
+import SaverLifeApp from '../../SaverLifeApp';
+import BudgetPage from '../../pages/BudgetPage.js';
+import PastSpendingPage from '../../pages/PastSpendingPage.js';
+import NetIncomePage from '../../pages/NetIncomePage.js';
+import GoalProgressBar from './GoalProgressBar';
 
 
-
-import SaverLifeApp from '../../SaverLifeApp'
-import LoadingComponent from './LoadingComponent'
-import BudgetPage from '../../pages/BudgetPage.js'
-import ProfilePage from '../../pages/ProfilePage.js'
-import PastSpendingPage from '../../pages/PastSpendingPage.js'
 import DashboardPage from '../../pages/DashboardPage'
-import NetIncomePage from '../../pages/NetIncomePage.js'
+
 import PastSpendingBarPage from '../../pages/PastSpendingBarPage'
 import PastSpendingDonutPage from '../../pages/PastSpendingDonutPage'
-import GoalProgressBar from './GoalProgressBar'
 import { NavigationContainer } from '@react-navigation/native';
 
-// import Home from '../../icons/'
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Navbar = () => {
-    const Tab = createBottomTabNavigator()
-    // const [status, setStatus] = useState(false)
-    // const [counter, setCounter] = useState(0)
+  const Tab = createBottomTabNavigator();
 
-    // useEffect(async() => {
-    //     const current = await isAuthenticated()
+  return (
+    <>
+      <GoalProgressBar />
+      <Tab.Navigator
+		tabBarOptions={{ activeTintColor:'#c01089', inactiveTintColor: '#ecb7db' }}>
+		<Tab.Screen name="Home" component={DashboardPage} options={{ tabBarLabel: 'Home', tabBarIcon: ({ color }) => ( <Ionicons name="home" size={20} color={color} /> ) }} />
+        <Tab.Screen name="Budget" component={BudgetPage} options={{ tabBarLabel: 'Budget', tabBarIcon: ({ color }) => ( <Ionicons name="list-outline" size={20} color={color} /> ) }} />
+        <Tab.Screen name="Spend Bar" component={PastSpendingBarPage} options={{ tabBarLabel: 'Spend Bar', tabBarIcon: ({ color }) => ( <Ionicons name="bar-chart" size={20} color={color} /> ) }} />
+        <Tab.Screen name="Spend Donut" component={PastSpendingDonutPage} options={{ tabBarLabel: 'Spend Donut', tabBarIcon: ({ color }) => ( <Ionicons name="pie-chart" size={20} color={color} /> ) }} />
+        <Tab.Screen name="Net Income" component={NetIncomePage} options={{ tabBarLabel: 'Net Income', tabBarIcon: ({ color }) => ( <Ionicons name="stats-chart" size={20} color={color} /> ) }} />
+        <Tab.Screen name="Account" component={SaverLifeApp} options={{ tabBarLabel: 'Account', tabBarIcon: ({ color }) => ( <Ionicons name="person-outline" size={20} color={color} /> ) }} />
+      </Tab.Navigator>
+    </>
+  );
+};
 
-    //     if (current.authenticated !== status) {
-    //         setStatus(!status)
-    //     }
-    // }, [counter])
-
-    // setTimeout(async () => {
-    //     setCounter(counter + 1)
-    // }, 1000)
-    // const getUserIdToken = async () => {
-    //     let user = await getUserFromIdToken();
-    //     return JSON.stringify(user, null, 2)
-    // }
-
-    return (
-        <>
-            <GoalProgressBar />
-            {/* <Text>{() => getUserIdToken()}</Text> */}
-            <Tab.Navigator
-                tabBarOptions={{
-                    activeTintColor: '#c01089',
-                }}
-            >
-                {/* <Tab.Screen name="Profile" component={ProfilePage} /> */}
-                <Tab.Screen name="DashBoard" component={DashboardPage} />
-                <Tab.Screen name="Budget" component={BudgetPage} />
-                <Tab.Screen name="Spend Bar" component={PastSpendingBarPage} />
-                <Tab.Screen name="Spend Donut" component={PastSpendingDonutPage} />
-                <Tab.Screen name="Net Income" component={NetIncomePage} />
-                <Tab.Screen name="Account" component={SaverLifeApp} />
-            </Tab.Navigator>
-        </>
-    )
-}
-
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//     }
-// })
-
-export default Navbar
+export default Navbar;
