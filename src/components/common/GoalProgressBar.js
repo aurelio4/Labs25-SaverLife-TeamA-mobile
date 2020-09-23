@@ -16,7 +16,7 @@ const GoalProgressBar = () => {
 	return (
 		<SafeAreaView>
 			<View style={styles.bar}>
-				<ProgressBar progress={0.3} width={350} height={10} color='#c01089' />
+				<ProgressBar progress={38/42} width={350} height={10} color='#c01089' />
 			</View>
 		</SafeAreaView>
 	);

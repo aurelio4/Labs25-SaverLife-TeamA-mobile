@@ -15,10 +15,9 @@ const BudgetVisual = props => {
 
   return (
     <View style={styles.container}>
-        <Text style={{fontSize: 20}}>
-            My Budget
-        </Text>
-
+      <Text style={{fontSize: 20}}>
+        My Budget
+      </Text>
       {Object.entries(props.categoryGoals).map(entry => {
         return (
           <EnhancedProgressBar
@@ -38,6 +37,15 @@ const BudgetVisual = props => {
 };
 
 const styles = StyleSheet.create({
+    background: {
+      flex: 1,
+      alignItems: 'center',
+      width: '100%',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'space-around',
+      height: 450,
+  },
     container: {
         flex: 1,
         alignItems: 'center',
@@ -46,9 +54,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         height: 450,
-    },
-    title: {
-        fontSize: 20
     }
 })
 
