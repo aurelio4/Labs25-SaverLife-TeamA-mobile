@@ -1,5 +1,5 @@
 import React from './node_modules/react'
-import { ScrollView, Text, StyleSheet } from 'react-native'
+import { ScrollView, Text, StyleSheet, View } from 'react-native'
 import { useDispatch, useSelector } from './node_modules/react-redux';
 import Plotly from './node_modules/react-native-plotly';
 
@@ -18,20 +18,25 @@ const PastSpendingPlots = () => {
         dispatch(getSpendingDonutAction());
     }, []);
     return (
-        <>
-            <Plotly data={spendingBarData} config={{ displayModeBar: false }}
-            layout={spendingBarLayout}/>
-            <Plotly data={spendingDonutData} config={{ displayModeBar: false }}
-            layout={spendingDonutLayout}/>
-        </>
+        <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <View style={styles.container}>
+        <Plotly data={spendingBarData} config={{ displayModeBar: false }}
+            layout={{...spendingBarLayout}} />
+        </View>
+        <View style={styles.container}>
+        <Plotly data={spendingDonutData} config={{ displayModeBar: false }}
+            layout={spendingDonutLayout} />
+        </View>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        // margin: 1000,
         justifyContent: 'center',
         alignItems: 'center',
+        border: '1px solid black'
     }
 })
 
