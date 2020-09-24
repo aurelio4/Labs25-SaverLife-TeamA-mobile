@@ -34,22 +34,22 @@ export default class TransactionsTable extends Component {
       
       })
   }
-//   async componentDidUpdate(prevProps, prevState) {
-//       if (prevProps !== this.props){
-//         console.log('Update', this.props.transactions)
-//         let newData = []
-//         console.log('pop',this.props.transactions)
-//         this.props.transactions.forEach(transaction => (
+  async componentDidUpdate(prevProps, prevState) {
+      if (prevProps !== this.props){
+        console.log('Update', this.props.transactions)
+        let newData = []
+        console.log('pop',this.props.transactions)
+        this.props.transactions.forEach(transaction => (
 
-//             newData.push[transaction.date, transaction.category, transaction.amount]
-//         ))
-//         this.setState({
-//             tableHead: ['Date', 'Category', 'Amount in USD'],
-//             tableData: newData
+            newData.push[transaction.date, transaction.category, transaction.amount]
+        ))
+        this.setState({
+            tableHead: ['Date', 'Category', 'Amount in USD'],
+            tableData: newData
         
-//         })
-//       }
-//   }
+        })
+      }
+  }
  
   render() {
     const state = this.state;
